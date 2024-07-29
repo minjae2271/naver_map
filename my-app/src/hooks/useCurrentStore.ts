@@ -8,7 +8,7 @@ const useCurrentStore = () => {
     }, []);
 
     const removeCurrentStore = useCallback(() => {
-        mutate('/current-store', [])
+        mutate('/current-store', null)
     }, []);
 
     return {

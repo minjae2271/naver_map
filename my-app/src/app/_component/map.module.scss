@@ -1,0 +1,11 @@
+@use './detailSection.module.scss';
+
+.map {
+    width: 100%;
+    height: 100%;
+
+    //naver logo 위치 조정
+    & > div:nth-of-type(2) {
+        bottom: detailSection.$header-height + detailSection.$section-padding-top !important;
+    }
+}

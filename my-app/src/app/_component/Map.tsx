@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { useEffect, useRef } from "react";
 import { NaverMap } from "../../model/Naver";
+import styles from "../_component/map.module.scss";
 
 
 type Props = {
@@ -48,7 +49,7 @@ export default function Map({ onLoad, initialZoom,  initialCenter}: Props) {
                 src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}`}
                 onReady={initializeMap}
             />
-            <div id="map" style={{width:"100%", height:"100%"}}/>
+            <div id="map" className={styles.map}/>
         </>
     )
 }
