@@ -9,8 +9,12 @@ $section-padding-top: 8px;
     height: 100%;
     z-index: 101;
 
+    display: flex;
+    flex-direction: column;
+
     padding: $section-padding-top 16px 16px;
     background-color: white;
+    color: #444444;
 
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
@@ -30,6 +34,38 @@ $section-padding-top: 8px;
         transform: translateY(
             0
         );
+    }
+}
+
+// hr {
+//     border-bottom: none;
+//     border-top: 1px solid #eef0f3;
+//     margin: 16px 0;
+// }
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 120px));
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.description {
+    p {
+        margin: 4px 0;
+    }
+}
+
+.basicInfo {
+    div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    span {
+        margin-left: 4px;
+        font-size: 1rem;
     }
 }
 

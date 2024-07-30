@@ -4,6 +4,7 @@ import { IoIosArrowUp } from 'react-icons/io';
 import useSWR from 'swr';
 import { useState } from 'react';
 import cx from "classnames";
+import DetailContent from './DetailContent';
 
 export default function DetailSection() {
     const { data: currentStore} = useSWR<Store>('/current-store');
@@ -18,6 +19,7 @@ export default function DetailSection() {
                 {!currentStore && <p className={styles.title}>매장을 선택해 주세요.</p>}
                 {currentStore && <p className={styles.title}>{currentStore.name}</p>}
             </div>
+            <DetailContent currentStore={currentStore} expanded={expanded} />
         </div>
     )
 }
