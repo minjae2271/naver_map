@@ -6,7 +6,7 @@ export type Store = {
   description: string;
   season: number;
   episode: number;
-  coordinates: [number, number];
+  coordinates: number[];
   images: string[];
   characteristic: string;
   foodKind: string;
