@@ -9,7 +9,7 @@ export type ImageIcon = {
 
 export type Marker = {
     map: NaverMap | undefined;
-    coordinates: [number, number];
+    coordinates: number[];
     icon: ImageIcon;
     onClick?: () => void;
 }
