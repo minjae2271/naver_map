@@ -24,10 +24,8 @@ export default function MapSection() {
     }
     return (
         <> 
-        <Suspense>
             <Map onLoad={onLoadMap} initialZoom={initialZoom} initialCenter={initialCenter}/>
             <Markers />
-        </Suspense>
         </>
     )
 }
