@@ -28,7 +28,7 @@ export default function Marker({map, coordinates, icon, onClick}: Props) {
         }
 
         if (onClick && coordinates) {
-            console.log('coordinates', coordinates)
+            // console.log('coordinates', coordinates)
             map?.setCenter(new naver.maps.LatLng(...coordinates))
             naver.maps.Event.addListener(marker, 'click', onClick);
         }

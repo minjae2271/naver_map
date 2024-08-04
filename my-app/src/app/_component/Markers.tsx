@@ -1,3 +1,5 @@
+'use client'
+
 import Marker from "./Marker";
 import useSWR from "swr";
 import { Store } from "../../model/Store";
@@ -9,9 +11,10 @@ export default function Markers() {
   const { data: stores } = useSWR<Store[]>("/stores");
   const { data: map } = useSWR<NaverMap>("/map");
   const { data: currentStore } = useSWR<Store>("/current-store");
+
   // console.log("stores:", stores);
   // console.log("map:", map);
-//   console.log('currentStore', currentStore);
+  // console.log('currentStore', currentStore);
 
   const { setCurrentStore, removeCurrentStore } = useCurrentStore();
 
@@ -38,6 +41,8 @@ export default function Markers() {
     };
   };
 
+  if (!map || !stores) return null;
+  
   return (
     <>
       {stores?.map((store) => {

@@ -17,6 +17,7 @@ export default function Map({ onLoad, initialZoom,  initialCenter}: Props) {
     const mapRef = useRef<NaverMap | null>(null);
 
     const initializeMap = () => {
+        // console.log("map initializing")
         const mapOptions = {
             center: initialCenter ? new window.naver.maps.LatLng(...initialCenter) : new window.naver.maps.LatLng(37.3595704, 127.105399),
             zoom: initialZoom ? initialZoom : 10,
@@ -29,9 +30,13 @@ export default function Map({ onLoad, initialZoom,  initialCenter}: Props) {
         }
         const map = new window.naver.maps.Map('map', mapOptions);
         mapRef.current = map;
+        // console.log("map is loaded")
 
         if (onLoad) {
+            // console.log("activate onLoad function")
             onLoad(map)
+        } else {
+            console.log('Naver maps not available')
         }
     }
 
@@ -47,7 +52,7 @@ export default function Map({ onLoad, initialZoom,  initialCenter}: Props) {
                 strategy='afterInteractive'
                 type="text/javascript"
                 src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}`}
-                onReady={initializeMap}
+                onLoad={initializeMap}
             />
             <div id="map" className={styles.map}/>
         </>

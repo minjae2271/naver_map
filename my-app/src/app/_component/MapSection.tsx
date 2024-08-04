@@ -7,11 +7,14 @@ import Map from './Map';
 import Markers from './Markers';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useMemo, Suspense } from 'react';
+// import { useState  } from "react";
 
 export default function MapSection() {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
+
+    // const [isMapLoaded, setIsMapLoaded] = useState(false);
 
     const query = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
     const initialZoom = useMemo(() => query.get('zoom') ? Number(query.get('zoom')): 10, [query]);
@@ -23,11 +26,14 @@ export default function MapSection() {
     const onLoadMap = (map: NaverMap) => {
         initializeMap(map);
         naver.maps.Event.addListener(map, 'click', removeCurrentStore);
+        // setIsMapLoaded(true);
+        // console.log("isMapLoade", isMapLoaded)
     }
     return (
         <> 
             <Map onLoad={onLoadMap} initialZoom={initialZoom} initialCenter={initialCenter}/>
             <Markers />
+            {/* (setIsMapLoaded && <Markers />) */}
         </>
     )
 }

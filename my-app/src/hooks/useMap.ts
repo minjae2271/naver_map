@@ -7,6 +7,7 @@ const useMap = () => {
 
     const initializeMap = useCallback((map: NaverMap) => {
         mutate('/map', map);
+        console.log("mutate mep")
     }, [])
 
     const resetMapOption = useCallback(() => {
