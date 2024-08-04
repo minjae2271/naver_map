@@ -4,7 +4,7 @@ import useCurrentStore from '@/hooks/useCurrentStore';
 import Map from './Map';
 import Markers from './Markers';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useMemo, Suspense } from 'react';
 
 export default function MapSection() {
     const router = useRouter();
@@ -23,9 +23,11 @@ export default function MapSection() {
         naver.maps.Event.addListener(map, 'click', removeCurrentStore);
     }
     return (
-        <>
+        <> 
+        <Suspense>
             <Map onLoad={onLoadMap} initialZoom={initialZoom} initialCenter={initialCenter}/>
             <Markers />
+        </Suspense>
         </>
     )
 }
