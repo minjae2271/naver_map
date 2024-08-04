@@ -44,7 +44,7 @@ export default function Map({ onLoad, initialZoom,  initialCenter}: Props) {
     return (
         <>
             <Script
-                strategy="afterInteractive"
+                strategy='beforeInteractive'
                 type="text/javascript"
                 src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NCP_CLIENT_ID}`}
                 onReady={initializeMap}
