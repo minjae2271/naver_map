@@ -2,11 +2,11 @@ import useSWR from "swr";
 import { useEffect } from "react"
 import { NaverMap} from "../../model/Naver"
 import { ImageIcon } from "../../model/Map"
-import { Store } from "@/model/Store";
+import { Coordinates, Store } from "@/model/Store";
 
 type Props = {
     map: NaverMap | undefined,
-    coordinates: [number, number],
+    coordinates: Coordinates ,
     icon: ImageIcon;
     onClick?: () => void;
 }
