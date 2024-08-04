@@ -1,3 +1,7 @@
+type Lat = number;
+type Lng = number;
+export type Coordinates = [Lat, Lng];
+
 export type Menu = { name: string; price: string };
 
 export type Store = {
@@ -6,7 +10,7 @@ export type Store = {
   description: string;
   season: number;
   episode: number;
-  coordinates: number[];
+  coordinates: Coordinates | number[]; 
   images: string[];
   characteristic: string;
   foodKind: string;

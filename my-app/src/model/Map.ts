@@ -1,3 +1,4 @@
+import type { Coordinates } from './Store';
 import { NaverMap } from "./Naver"
 
 export type ImageIcon = {
@@ -9,7 +10,7 @@ export type ImageIcon = {
 
 export type Marker = {
     map: NaverMap | undefined;
-    coordinates: number[];
+    coordinates: Coordinates;
     icon: ImageIcon;
     onClick?: () => void;
 }
