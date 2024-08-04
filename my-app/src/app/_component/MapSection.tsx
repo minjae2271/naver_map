@@ -1,3 +1,5 @@
+'use client'
+
 import { NaverMap } from '@/model/Naver';
 import useMap from "@/hooks/useMap";
 import useCurrentStore from '@/hooks/useCurrentStore';
